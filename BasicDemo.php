@@ -3,6 +3,7 @@
 namespace App\Filament\Pages;
 
 use App\Core\KanbanService;
+use Filament\Actions\Action;
 use Filament\Notifications\Notification;
 use Heloufir\FilamentKanban\Livewire\Kanban;
 
@@ -28,6 +29,17 @@ class BasicDemo extends Kanban
         $this->setStatuses(KanbanService::getStatuses());
         $this->setRecords(KanbanService::getRecords());
         $this->setResources(KanbanService::getResources());
+    }
+
+    protected function getActions(): array
+    {
+        return array_merge([
+            Action::make('source')
+                ->color('gray')
+                ->icon('heroicon-m-code-bracket')
+                ->label('View on Github')
+                ->url('https://github.com/heloufir/filament-kanban-demo/blob/main/BasicDemo.php')
+        ], Parent::getActions());
     }
 
     protected function showProgress(): bool|array
@@ -71,7 +83,8 @@ class BasicDemo extends Kanban
         $this->dispatch('close-modal', id: 'filament-kanban.record-modal');
     }
 
-    public function recordSorted(array $event): void {
+    public function recordSorted(array $event): void
+    {
         // Show a notification
         Notification::make('sorted')
             ->success()
@@ -80,7 +93,8 @@ class BasicDemo extends Kanban
             ->send();
     }
 
-    public function recordDragged(array $event): void {
+    public function recordDragged(array $event): void
+    {
         // Show a notification
         Notification::make('dragged')
             ->success()
