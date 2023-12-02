@@ -26,6 +26,7 @@ class BasicDemo extends Kanban
         'filament-kanban.record-dragged' => 'recordDragged',
         'filament-kanban.filter' => 'filter',
         'filament-kanban.reset-filter' => 'resetFilter',
+        'filament-kanban.record-deleted' => 'recordDeleted',
     ];
 
     public function mount(): void
@@ -164,5 +165,12 @@ class BasicDemo extends Kanban
     public function resetFilter(): void
     {
         $this->records = collect(KanbanService::getRecords())->toArray();
+    }
+
+    public function recordDeleted(array $record): void
+    {
+        if (isset($record['id']) && $index = $this->recordIndexById($record['id'])) {
+            unset($this->records[$index]);
+        }
     }
 }
