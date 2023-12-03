@@ -9,7 +9,7 @@ use Heloufir\FilamentKanban\Livewire\Kanban;
 
 class BasicDemo extends Kanban
 {
-    protected static ?string $navigationIcon = 'heroicon-o-rocket-launch';
+    protected static ?string $navigationIcon = 'heroicon-o-clipboard-document';
 
     protected static bool $handleRecordClickWithModal = true;
 
