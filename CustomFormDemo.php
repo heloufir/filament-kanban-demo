@@ -45,7 +45,7 @@ class CustomFormDemo extends Kanban
                 ->color('gray')
                 ->icon('heroicon-m-code-bracket')
                 ->label('View on Github')
-                ->url('https://github.com/heloufir/filament-kanban-demo/blob/main/BasicDemo.php')
+                ->url('https://github.com/heloufir/filament-kanban-demo/blob/main/CustomFormDemo.php')
         ], Parent::getActions());
     }
 
@@ -60,9 +60,6 @@ class CustomFormDemo extends Kanban
         $id = $this->record['id'] ?? null;
 
         // Formatting record fields
-        if (isset($this->record['tags'])) {
-            $this->record['tags'] = explode(',', $this->record['tags']);
-        }
         $this->record['status'] = intval($this->record['status']);
 
         // Update record or add it to the records array
