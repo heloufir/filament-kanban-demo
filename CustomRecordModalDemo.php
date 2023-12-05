@@ -6,6 +6,7 @@ use App\Core\KanbanService;
 use Filament\Actions\Action;
 use Filament\Notifications\Notification;
 use Heloufir\FilamentKanban\Livewire\Kanban;
+use Illuminate\Support\Facades\Config;
 
 class CustomRecordModalDemo extends Kanban
 {
@@ -30,6 +31,11 @@ class CustomRecordModalDemo extends Kanban
         'filament-kanban.reset-filter' => 'resetFilter',
         'filament-kanban.record-deleted' => 'recordDeleted',
     ];
+
+    public function __construct()
+    {
+        Config::set('filament-kanban.record-modal.position', '');
+    }
 
     public function mount(): void
     {
