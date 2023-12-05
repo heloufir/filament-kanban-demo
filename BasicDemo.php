@@ -58,9 +58,6 @@ class BasicDemo extends Kanban
         $id = $this->record['id'] ?? null;
 
         // Formatting record fields
-        if (isset($this->record['tags'])) {
-            $this->record['tags'] = explode(',', $this->record['tags']);
-        }
         $this->record['status'] = intval($this->record['status']);
 
         // Update record or add it to the records array
