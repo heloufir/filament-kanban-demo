@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Config;
 
 class CustomRecordModalDemo extends Kanban
 {
-    protected static ?string $navigationIcon = 'heroicon-o-clipboard-document';
+    protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
 
     protected static bool $handleRecordClickWithModal = true;
 
