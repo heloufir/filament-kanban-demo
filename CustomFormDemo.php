@@ -198,7 +198,6 @@ class CustomFormDemo extends Kanban
 
             Toggle::make('record.extra_3')
                 ->label('Extra input 3')
-                ->default(false)
         ]);
     }
 }
