@@ -8,10 +8,20 @@ class KanbanService
     public static function getStatuses(): array
     {
         return [
-            ['id' => 1, 'name' => 'Draft', 'color' => 'gray', 'draggable' => true],
+            ['id' => 1, 'name' => 'Draft', 'color' => 'green', 'draggable' => true],
             ['id' => 2, 'name' => 'Submitted', 'color' => 'blue', 'draggable' => false],
             ['id' => 3, 'name' => 'Changes requested', 'color' => 'orangered', 'draggable' => true],
             ['id' => 4, 'name' => 'Published', 'color' => 'green', 'draggable' => true],
+        ];
+    }
+
+    public static function getStatusesWithIcons(): array
+    {
+        return [
+            ['id' => 1, 'name' => 'Draft', 'color' => 'green', 'icon' => 'heroicon-o-pencil-square', 'draggable' => true],
+            ['id' => 2, 'name' => 'Submitted', 'color' => 'blue', 'icon' => 'heroicon-o-check-circle', 'draggable' => false],
+            ['id' => 3, 'name' => 'Changes requested', 'color' => 'orangered', 'icon' => 'heroicon-o-shield-check', 'draggable' => true],
+            ['id' => 4, 'name' => 'Published', 'color' => 'green', 'icon' => 'heroicon-o-clipboard-document-check', 'draggable' => true],
         ];
     }
 
