@@ -2,6 +2,8 @@
 
 namespace App\Core;
 
+use App\Enums\EnumStatuses;
+
 class KanbanService
 {
 
@@ -13,6 +15,19 @@ class KanbanService
             ['id' => 3, 'name' => 'Changes requested', 'color' => 'orangered', 'draggable' => true],
             ['id' => 4, 'name' => 'Published', 'color' => 'green', 'draggable' => true],
         ];
+    }
+
+    public static function getStatusesFromEnums(): array
+    {
+        $statuses = [];
+        foreach (EnumStatuses::cases() as $enumCase) {
+            $statuses[] = [
+                'id' => $enumCase->name,
+                'name' => $enumCase->value,
+                'draggable' => true
+            ];
+        }
+        return $statuses;
     }
 
     public static function getStatusesWithIcons(): array
@@ -77,6 +92,29 @@ class KanbanService
             ['id' => 15, 'status' => 4, 'title' => 'Record 10 Col 4', 'subtitle' => 'filament-kanban #104', 'sort' => 9, 'draggable' => true, 'click' => true, 'delete' => true, 'owner' => 5, 'assignees' => [1, 2], 'tags' => ['web', 'laravel', 'filament', 'kanban']],
             ['id' => 16, 'status' => 1, 'title' => 'Record 1 Col 1', 'subtitle' => 'filament-kanban #11', 'sort' => 0, 'draggable' => true, 'click' => true, 'delete' => true, 'progress' => 0, 'owner' => 1, 'assignees' => [3, 4, 5], 'deadline' => '2023-12-02', 'tags' => []],
             ['id' => 17, 'status' => 1, 'title' => 'Record 2 Col 1', 'subtitle' => 'filament-kanban #21', 'sort' => 1, 'draggable' => true, 'click' => true, 'delete' => true, 'progress' => 10, 'owner' => 2, 'assignees' => [6], 'deadline' => '2023-12-05', 'tags' => ['web']],
+        ];
+    }
+
+    public static function getRecordsBasedOnEnumStatuses(): array
+    {
+        return [
+            ['id' => 1, 'status' => EnumStatuses::PUBLISHED->name, 'title' => 'Record 1 Col 2', 'subtitle' => 'filament-kanban #12', 'sort' => 0, 'draggable' => true, 'click' => true, 'delete' => false, 'progress' => 20, 'owner' => 1, 'assignees' => [2, 3, 4, 5], 'tags' => ['filament', 'kanban']],
+            ['id' => 2, 'status' => EnumStatuses::CHANGES_REQUESTED->name, 'title' => 'Record 1 Col 3', 'subtitle' => 'filament-kanban #13', 'sort' => 0, 'draggable' => true, 'click' => true, 'delete' => true, 'progress' => 30, 'owner' => 2, 'assignees' => [2], 'deadline' => '2023-12-07', 'tags' => ['laravel', 'filament', 'kanban']],
+            ['id' => 3, 'status' => EnumStatuses::CHANGES_REQUESTED->name, 'title' => 'Record 2 Col 3', 'subtitle' => 'filament-kanban #23', 'sort' => 1, 'draggable' => false, 'click' => true, 'delete' => true, 'owner' => 3, 'assignees' => [3]],
+            ['id' => 4, 'status' => EnumStatuses::CHANGES_REQUESTED->name, 'title' => 'Record 3 Col 3', 'subtitle' => 'filament-kanban #33', 'sort' => 2, 'draggable' => true, 'click' => false, 'delete' => true, 'owner' => 4, 'assignees' => [3, 4], 'deadline' => '2024-02-02', 'tags' => ['web', 'laravel', 'filament']],
+            ['id' => 5, 'status' => EnumStatuses::CHANGES_REQUESTED->name, 'title' => 'Record 4 Col 3', 'subtitle' => 'filament-kanban #43', 'sort' => 3, 'draggable' => true, 'click' => true, 'delete' => true, 'progress' => 35, 'owner' => 5, 'assignees' => [5], 'tags' => ['web', 'laravel']],
+            ['id' => 6, 'status' => EnumStatuses::SUBMITTED->name, 'title' => 'Record 1 Col 4', 'subtitle' => 'filament-kanban #14', 'sort' => 0, 'draggable' => true, 'click' => true, 'delete' => true, 'progress' => 40, 'owner' => 1, 'assignees' => [4], 'tags' => ['web', 'laravel', 'kanban']],
+            ['id' => 7, 'status' => EnumStatuses::SUBMITTED->name, 'title' => 'Record 2 Col 4', 'subtitle' => 'filament-kanban #24', 'sort' => 1, 'draggable' => true, 'click' => true, 'delete' => true, 'progress' => 50, 'owner' => 2, 'assignees' => [3, 5], 'deadline' => '2023-12-29', 'tags' => ['web']],
+            ['id' => 8, 'status' => EnumStatuses::SUBMITTED->name, 'title' => 'Record 3 Col 4', 'subtitle' => 'filament-kanban #34', 'sort' => 2, 'draggable' => true, 'click' => true, 'delete' => true, 'owner' => 3, 'assignees' => [2, 4], 'tags' => []],
+            ['id' => 9, 'status' => EnumStatuses::SUBMITTED->name, 'title' => 'Record 4 Col 4', 'subtitle' => 'filament-kanban #44', 'sort' => 3, 'draggable' => true, 'click' => true, 'delete' => true, 'progress' => 100, 'owner' => 4, 'deadline' => '2023-11-15', 'tags' => []],
+            ['id' => 10, 'status' => EnumStatuses::SUBMITTED->name, 'title' => 'Record 5 Col 4', 'subtitle' => 'filament-kanban #54', 'sort' => 4, 'draggable' => true, 'click' => true, 'delete' => true, 'progress' => 80, 'owner' => 5, 'tags' => ['kanban']],
+            ['id' => 11, 'status' => EnumStatuses::SUBMITTED->name, 'title' => 'Record 6 Col 4', 'subtitle' => 'filament-kanban #64', 'sort' => 5, 'draggable' => true, 'click' => true, 'delete' => true, 'progress' => 75, 'owner' => 1, 'assignees' => [2], 'tags' => ['laravel']],
+            ['id' => 12, 'status' => EnumStatuses::SUBMITTED->name, 'title' => 'Record 7 Col 4', 'subtitle' => 'filament-kanban #74', 'sort' => 6, 'draggable' => true, 'click' => true, 'delete' => true, 'progress' => 90, 'owner' => 3, 'assignees' => [2], 'deadline' => '2023-11-02', 'tags' => ['kanban']],
+            ['id' => 13, 'status' => EnumStatuses::ARCHIVED->name, 'title' => 'Record 8 Col 4', 'subtitle' => 'filament-kanban #84', 'sort' => 7, 'draggable' => true, 'click' => true, 'delete' => true, 'progress' => 85, 'owner' => 4, 'assignees' => [3], 'deadline' => '2023-10-27', 'tags' => ['web', 'laravel', 'filament', 'kanban']],
+            ['id' => 14, 'status' => EnumStatuses::ARCHIVED->name, 'title' => 'Record 9 Col 4', 'subtitle' => 'filament-kanban #94', 'sort' => 8, 'draggable' => true, 'click' => true, 'delete' => true, 'owner' => 4, 'assignees' => [1], 'tags' => ['web']],
+            ['id' => 15, 'status' => EnumStatuses::ARCHIVED->name, 'title' => 'Record 10 Col 4', 'subtitle' => 'filament-kanban #104', 'sort' => 9, 'draggable' => true, 'click' => true, 'delete' => true, 'owner' => 5, 'assignees' => [1, 2], 'tags' => ['web', 'laravel', 'filament', 'kanban']],
+            ['id' => 16, 'status' => EnumStatuses::DRAFT->name, 'title' => 'Record 1 Col 1', 'subtitle' => 'filament-kanban #11', 'sort' => 0, 'draggable' => true, 'click' => true, 'delete' => true, 'progress' => 0, 'owner' => 1, 'assignees' => [3, 4, 5], 'deadline' => '2023-12-02', 'tags' => []],
+            ['id' => 17, 'status' => EnumStatuses::DRAFT->name, 'title' => 'Record 2 Col 1', 'subtitle' => 'filament-kanban #21', 'sort' => 1, 'draggable' => true, 'click' => true, 'delete' => true, 'progress' => 10, 'owner' => 2, 'assignees' => [6], 'deadline' => '2023-12-05', 'tags' => ['web']],
         ];
     }
 
