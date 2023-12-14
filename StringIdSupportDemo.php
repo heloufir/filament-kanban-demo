@@ -27,7 +27,6 @@ class StringIdSupportDemo extends Kanban
         'filament-kanban.record-sorted' => 'recordSorted',
         'filament-kanban.record-dragged' => 'recordDragged',
         'filament-kanban.filter' => 'filter',
-        'filament-kanban.reset-filter' => 'resetFilter',
         'filament-kanban.record-deleted' => 'recordDeleted',
     ];
 
@@ -45,7 +44,7 @@ class StringIdSupportDemo extends Kanban
                 ->color('gray')
                 ->icon('heroicon-m-code-bracket')
                 ->label('View on Github')
-                ->url('https://github.com/heloufir/filament-kanban-demo/blob/main/BasicDemo.php')
+                ->url('https://github.com/heloufir/filament-kanban-demo/blob/main/StringIdSupportDemo.php')
         ], Parent::getActions());
     }
 
@@ -160,6 +159,7 @@ class StringIdSupportDemo extends Kanban
 
     public function resetFilter(): void
     {
+        $this->filterForm->fill();
         $this->records = collect(KanbanService::getRecords())->toArray();
     }
 
