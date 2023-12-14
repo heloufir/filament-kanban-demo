@@ -17,15 +17,16 @@ class BasicDemo extends Kanban
 
     public bool $showFilters = true;
 
-    protected static ?string $slug = 'basic-demo';
+    protected static ?string $slug = 'demo/basic';
 
-    protected static ?string $title = 'Basic Demo';
+    protected static ?string $title = 'Basic';
+
+    protected static ?string $navigationGroup = 'Demo';
 
     protected $listeners = [
         'filament-kanban.record-sorted' => 'recordSorted',
         'filament-kanban.record-dragged' => 'recordDragged',
         'filament-kanban.filter' => 'filter',
-        'filament-kanban.reset-filter' => 'resetFilter',
         'filament-kanban.record-deleted' => 'recordDeleted',
     ];
 
@@ -87,6 +88,7 @@ class BasicDemo extends Kanban
 
     public function recordSorted(array $event): void
     {
+        dd($event);
         // Show a notification
         Notification::make('sorted')
             ->success()
@@ -161,7 +163,8 @@ class BasicDemo extends Kanban
 
     public function resetFilter(): void
     {
-        $this->records = collect(KanbanService::getRecords())->toArray();
+        $this->filterForm->fill();
+        $this->records = KanbanService::getRecords();
     }
 
     public function recordDeleted(array $record): void
