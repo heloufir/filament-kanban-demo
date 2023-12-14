@@ -28,7 +28,6 @@ class CustomRecordModalDemo extends Kanban
         'filament-kanban.record-sorted' => 'recordSorted',
         'filament-kanban.record-dragged' => 'recordDragged',
         'filament-kanban.filter' => 'filter',
-        'filament-kanban.reset-filter' => 'resetFilter',
         'filament-kanban.record-deleted' => 'recordDeleted',
     ];
 
@@ -169,6 +168,7 @@ class CustomRecordModalDemo extends Kanban
 
     public function resetFilter(): void
     {
+        $this->filterForm->fill();
         $this->records = collect(KanbanService::getRecords())->toArray();
     }
 
