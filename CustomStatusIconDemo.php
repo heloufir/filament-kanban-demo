@@ -27,7 +27,6 @@ class CustomStatusIconDemo extends Kanban
         'filament-kanban.record-sorted' => 'recordSorted',
         'filament-kanban.record-dragged' => 'recordDragged',
         'filament-kanban.filter' => 'filter',
-        'filament-kanban.reset-filter' => 'resetFilter',
         'filament-kanban.record-deleted' => 'recordDeleted',
     ];
 
@@ -45,7 +44,7 @@ class CustomStatusIconDemo extends Kanban
                 ->color('gray')
                 ->icon('heroicon-m-code-bracket')
                 ->label('View on Github')
-                ->url('https://github.com/heloufir/filament-kanban-demo/blob/main/BasicDemo.php')
+                ->url('https://github.com/heloufir/filament-kanban-demo/blob/main/CustomStatusIconDemo.php')
         ], Parent::getActions());
     }
 
@@ -163,6 +162,7 @@ class CustomStatusIconDemo extends Kanban
 
     public function resetFilter(): void
     {
+        $this->filterForm->fill();
         $this->records = collect(KanbanService::getRecords())->toArray();
     }
 
