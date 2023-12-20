@@ -44,7 +44,7 @@ class RefreshRecordDemo extends Kanban
                 ->color('gray')
                 ->icon('heroicon-m-code-bracket')
                 ->label('View on Github')
-                ->url('https://github.com/heloufir/filament-kanban-demo/blob/main/BasicDemo.php')
+                ->url('https://github.com/heloufir/filament-kanban-demo/blob/main/RefreshRecordDemo.php')
         ], Parent::getActions());
     }
 
@@ -175,9 +175,18 @@ class RefreshRecordDemo extends Kanban
 
     public function refreshRecord(int|string $id): array|null
     {
-        $recordIndex = $this->recordIndexById($id);
-        $record = $this->records[$recordIndex];
-        $record['title'] = 'Refreshed title';
-        return $record;
+        $key = -1;
+        foreach ($this->records as $k => $v) {
+            if ($v['id'] === $id || intval($id) === $v['id']) {
+                $key = $k;
+            }
+        }
+        if ($key !== -1) {
+            $record = $this->records[$key];
+            $record['title'] = 'Refreshed title';
+            $record['subtitle'] = 'Refreshed subtitle';
+            return $record;
+        }
+        return null;
     }
 }
