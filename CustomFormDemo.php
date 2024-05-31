@@ -4,7 +4,8 @@ namespace App\Filament\Pages;
 
 use App\Core\KanbanService;
 use Filament\Actions\Action;
-use Filament\Forms\Components\Checkbox;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
@@ -26,6 +27,24 @@ class CustomFormDemo extends Kanban
     protected static ?string $title = 'Custom Form';
 
     protected static ?string $navigationGroup = 'Demo';
+
+    public array $record = [
+        'id' => null,
+        'status' => null,
+        'title' => null,
+        'subtitle' => null,
+        'sort' => 0,
+        'draggable' => true,
+        'click' => true,
+        'progress' => 0,
+        'owner' => null,
+        'assignees' => [],
+        'tags' => null,
+        'file' => null,
+        'extra_1' => null,
+        'extra_2' => null,
+        'extra_3' => null,
+    ];
 
     protected $listeners = [
         'filament-kanban.record-sorted' => 'recordSorted',
@@ -192,13 +211,24 @@ class CustomFormDemo extends Kanban
             TextInput::make('record.extra_1')
                 ->label('Extra input 1'),
 
-            TextInput::make('record.extra_2')
+            Select::make('record.extra_2')
                 ->label('Extra input 2')
+                ->options([
+                    1 => 'Value 1',
+                    2 => 'Value 2',
+                    3 => 'Value 3',
+                    4 => 'Value 4',
+                    5 => 'Value 5',
+                ])
+                ->searchable()
                 ->helperText('An extra input added by overriding the "form" method'),
 
             Toggle::make('record.extra_3')
                 ->label('Extra input 3')
-                ->visible(fn () => isset($this->record['extra_3']))
+                ->visible(fn() => isset($this->record['extra_3'])),
+
+            FileUpload::make('record.file')
+                ->label('File'),
         ]);
     }
 }
