@@ -91,7 +91,7 @@ class KanbanService
             ['id' => 14, 'status' => 4, 'title' => 'Record 9 Col 4', 'subtitle' => 'filament-kanban #94', 'sort' => 8, 'draggable' => true, 'click' => true, 'delete' => true, 'owner' => 4, 'assignees' => [1], 'tags' => ['web']],
             ['id' => 15, 'status' => 4, 'title' => 'Record 10 Col 4', 'subtitle' => 'filament-kanban #104', 'sort' => 9, 'draggable' => true, 'click' => true, 'delete' => true, 'owner' => 5, 'assignees' => [1, 2], 'tags' => ['web', 'laravel', 'filament', 'kanban']],
             ['id' => 16, 'status' => 1, 'title' => 'Record 1 Col 1', 'subtitle' => 'filament-kanban #11', 'sort' => 0, 'draggable' => true, 'click' => true, 'delete' => true, 'progress' => 0, 'owner' => 1, 'assignees' => [3, 4, 5], 'deadline' => '2023-12-02', 'tags' => []],
-            ['id' => 17, 'status' => 1, 'title' => 'Record 2 Col 1', 'subtitle' => 'filament-kanban #21', 'sort' => 1, 'draggable' => true, 'click' => true, 'delete' => true, 'progress' => 10, 'owner' => 2, 'assignees' => [6], 'deadline' => '2023-12-05', 'tags' => ['web']],
+            ['id' => 17, 'status' => 1, 'title' => 'Record 2 Col 1', 'subtitle' => 'filament-kanban #21', 'sort' => 1, 'draggable' => true, 'click' => true, 'delete' => true, 'progress' => 10, 'owner' => 2, 'assignees' => [5], 'deadline' => '2023-12-05', 'tags' => ['web']],
         ];
     }
 
@@ -114,7 +114,7 @@ class KanbanService
             ['id' => 14, 'status' => EnumStatuses::ARCHIVED->name, 'title' => 'Record 9 Col 4', 'subtitle' => 'filament-kanban #94', 'sort' => 8, 'draggable' => true, 'click' => true, 'delete' => true, 'owner' => 4, 'assignees' => [1], 'tags' => ['web']],
             ['id' => 15, 'status' => EnumStatuses::ARCHIVED->name, 'title' => 'Record 10 Col 4', 'subtitle' => 'filament-kanban #104', 'sort' => 9, 'draggable' => true, 'click' => true, 'delete' => true, 'owner' => 5, 'assignees' => [1, 2], 'tags' => ['web', 'laravel', 'filament', 'kanban']],
             ['id' => 16, 'status' => EnumStatuses::DRAFT->name, 'title' => 'Record 1 Col 1', 'subtitle' => 'filament-kanban #11', 'sort' => 0, 'draggable' => true, 'click' => true, 'delete' => true, 'progress' => 0, 'owner' => 1, 'assignees' => [3, 4, 5], 'deadline' => '2023-12-02', 'tags' => []],
-            ['id' => 17, 'status' => EnumStatuses::DRAFT->name, 'title' => 'Record 2 Col 1', 'subtitle' => 'filament-kanban #21', 'sort' => 1, 'draggable' => true, 'click' => true, 'delete' => true, 'progress' => 10, 'owner' => 2, 'assignees' => [6], 'deadline' => '2023-12-05', 'tags' => ['web']],
+            ['id' => 17, 'status' => EnumStatuses::DRAFT->name, 'title' => 'Record 2 Col 1', 'subtitle' => 'filament-kanban #21', 'sort' => 1, 'draggable' => true, 'click' => true, 'delete' => true, 'progress' => 10, 'owner' => 2, 'assignees' => [5], 'deadline' => '2023-12-05', 'tags' => ['web']],
         ];
     }
 
@@ -137,7 +137,7 @@ class KanbanService
             ['id' => 14, 'status' => 4, 'title' => 'Record 9 Col 4', 'subtitle' => 'filament-kanban #94', 'sort' => 8, 'draggable' => true, 'click' => true, 'delete' => true, 'owner' => 4, 'assignees' => [1], 'tags' => ['web'], 'file' => null, 'extra_1' => 'Extra value 1', 'extra_2' => 'Extra value 2', 'extra_3' => true],
             ['id' => 15, 'status' => 4, 'title' => 'Record 10 Col 4', 'subtitle' => 'filament-kanban #104', 'sort' => 9, 'draggable' => true, 'click' => true, 'delete' => true, 'owner' => 5, 'assignees' => [1, 2], 'tags' => ['web', 'laravel', 'filament', 'kanban'], 'file' => null, 'extra_1' => 'Extra value 1', 'extra_2' => 'Extra value 2', 'extra_3' => true],
             ['id' => 16, 'status' => 1, 'title' => 'Record 1 Col 1', 'subtitle' => 'filament-kanban #11', 'sort' => 0, 'draggable' => true, 'click' => true, 'delete' => true, 'progress' => 0, 'owner' => 1, 'assignees' => [3, 4, 5], 'deadline' => '2023-12-02', 'tags' => [], 'file' => null, 'extra_1' => 'Extra value 1', 'extra_2' => 'Extra value 2', 'extra_3' => false],
-            ['id' => 17, 'status' => 1, 'title' => 'Record 2 Col 1', 'subtitle' => 'filament-kanban #21', 'sort' => 1, 'draggable' => true, 'click' => true, 'delete' => true, 'progress' => 10, 'owner' => 2, 'assignees' => [6], 'deadline' => '2023-12-05', 'tags' => ['web'], 'file' => null, 'extra_1' => 'Extra value 1', 'extra_2' => 'Extra value 2', 'extra_3' => true],
+            ['id' => 17, 'status' => 1, 'title' => 'Record 2 Col 1', 'subtitle' => 'filament-kanban #21', 'sort' => 1, 'draggable' => true, 'click' => true, 'delete' => true, 'progress' => 10, 'owner' => 2, 'assignees' => [5], 'deadline' => '2023-12-05', 'tags' => ['web'], 'file' => null, 'extra_1' => 'Extra value 1', 'extra_2' => 'Extra value 2', 'extra_3' => true],
         ];
     }
 
@@ -160,7 +160,7 @@ class KanbanService
             ['id' => "6491f95e-4e10-45b0-aad3-24edca3549g5", 'status' => "6491f95e-4e10-45b0-aad3-24edca3549e4", 'title' => 'Record 9 Col 4', 'subtitle' => 'filament-kanban #94', 'sort' => 8, 'draggable' => true, 'click' => true, 'delete' => true, 'owner' => "6491f95e-4e10-45b0-aad3-24edca3549d4", 'assignees' => ["6491f95e-4e10-45b0-aad3-24edca3549d1"], 'tags' => ['web']],
             ['id' => "6491f95e-4e10-45b0-aad3-24edca3549g6", 'status' => "6491f95e-4e10-45b0-aad3-24edca3549e4", 'title' => 'Record 10 Col 4', 'subtitle' => 'filament-kanban #104', 'sort' => 9, 'draggable' => true, 'click' => true, 'delete' => true, 'owner' => "6491f95e-4e10-45b0-aad3-24edca3549d5", 'assignees' => ["6491f95e-4e10-45b0-aad3-24edca3549d1", "6491f95e-4e10-45b0-aad3-24edca3549d2"], 'tags' => ['web', 'laravel', 'filament', 'kanban']],
             ['id' => "6491f95e-4e10-45b0-aad3-24edca3549g7", 'status' => "6491f95e-4e10-45b0-aad3-24edca3549e1", 'title' => 'Record 1 Col 1', 'subtitle' => 'filament-kanban #11', 'sort' => 0, 'draggable' => true, 'click' => true, 'delete' => true, 'progress' => 0, 'owner' => "6491f95e-4e10-45b0-aad3-24edca3549d1", 'assignees' => ["6491f95e-4e10-45b0-aad3-24edca3549d3", "6491f95e-4e10-45b0-aad3-24edca3549d4", "6491f95e-4e10-45b0-aad3-24edca3549d5"], 'deadline' => '2023-12-02', 'tags' => []],
-            ['id' => "6491f95e-4e10-45b0-aad3-24edca3549g8", 'status' => "6491f95e-4e10-45b0-aad3-24edca3549e1", 'title' => 'Record 2 Col 1', 'subtitle' => 'filament-kanban #21', 'sort' => 1, 'draggable' => true, 'click' => true, 'delete' => true, 'progress' => 10, 'owner' => "6491f95e-4e10-45b0-aad3-24edca3549d2", 'assignees' => ["6491f95e-4e10-45b0-aad3-24edca3549d6"], 'deadline' => '2023-12-05', 'tags' => ['web']],
+            ['id' => "6491f95e-4e10-45b0-aad3-24edca3549g8", 'status' => "6491f95e-4e10-45b0-aad3-24edca3549e1", 'title' => 'Record 2 Col 1', 'subtitle' => 'filament-kanban #21', 'sort' => 1, 'draggable' => true, 'click' => true, 'delete' => true, 'progress' => 10, 'owner' => "6491f95e-4e10-45b0-aad3-24edca3549d2", 'assignees' => ["6491f95e-4e10-45b0-aad3-24edca3549d5"], 'deadline' => '2023-12-05', 'tags' => ['web']],
         ];
     }
 
