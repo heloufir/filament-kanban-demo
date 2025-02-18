@@ -161,11 +161,16 @@ class KanbanV2Views extends KanbanBoard
     protected function getHeaderActions(): array
     {
         return [
+            Action::make('source')
+                ->color('gray')
+                ->icon('heroicon-m-code-bracket')
+                ->label('View on Github')
+                ->url('https://github.com/heloufir/filament-kanban-demo/blob/main/KanbanV2Views.php'),
             Action::make('docs')
                 ->label('Documentation')
                 ->color('gray')
                 ->outlined()
-                ->icon('heroicon-o-code-bracket')
+                ->icon('heroicon-o-document')
                 ->url('https://filament-kanban-docs-v2.heloufir.dev/', true),
             $this->addAction()
         ];
